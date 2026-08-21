@@ -51,12 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Theme Management
   function setupTheme() {
     const saved = localStorage.getItem('unitime_theme') || 'dark';
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
     if (saved === 'light') {
       document.body.classList.remove('dark');
       document.body.classList.add('light');
+      if (metaTheme) metaTheme.setAttribute('content', '#f4f6f9');
     } else {
       document.body.classList.remove('light');
       document.body.classList.add('dark');
+      if (metaTheme) metaTheme.setAttribute('content', '#0a0d14');
     }
   }
 
@@ -64,7 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const isDark = document.body.classList.contains('dark');
     document.body.classList.toggle('dark', !isDark);
     document.body.classList.toggle('light', isDark);
-    localStorage.setItem('unitime_theme', isDark ? 'light' : 'dark');
+    const newTheme = isDark ? 'light' : 'dark';
+    localStorage.setItem('unitime_theme', newTheme);
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) {
+      metaTheme.setAttribute('content', newTheme === 'light' ? '#f4f6f9' : '#0a0d14');
+    }
   }
 
   // Clock
