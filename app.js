@@ -46,6 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPreferences();
     renderSchedule();
     setupEventListeners();
+    const activeTab = dayTabs.querySelector('.tab-item.active');
+    if (activeTab) {
+      activeTab.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
+    }
   }
 
   // Theme Management
@@ -155,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // Render Schedule Grid
+  // Render Schedule Grid (Organized with Day Separation)
   function renderSchedule() {
     const events = getFilteredEvents();
     const progLabel = deptSelect.options[deptSelect.selectedIndex].text;
@@ -175,7 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.addEventListener('click', () => {
             document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
             const allTab = document.querySelector('[data-day="All"]');
-            if (allTab) allTab.classList.add('active');
+            if (allTab) {
+              allTab.classList.add('active');
+              allTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
             currentDayFilter = 'All';
             renderSchedule();
           });
@@ -188,36 +195,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
     emptyState.style.display = 'none';
 
-    let html = '';
+    // Group events by day in chronological order
+    const groupedByDay = {};
+    DAYS_ORDER.forEach(day => {
+      groupedByDay[day] = [];
+    });
+
     events.forEach(ev => {
-      const theme = getTheme(ev.department);
-      const isElective = ev.department === 'MS-ELECTIVE';
-      const badgeText = isElective ? 'MS Elective' : ev.department.replace('MS-', 'MS ');
+      if (!groupedByDay[ev.day]) {
+        groupedByDay[ev.day] = [];
+      }
+      groupedByDay[ev.day].push(ev);
+    });
+
+    let html = '';
+    const isFullWeek = currentDayFilter === 'All' || currentDayFilter === 'Full Week';
+
+    DAYS_ORDER.forEach(day => {
+      const dayEvents = groupedByDay[day];
+      if (!dayEvents || dayEvents.length === 0) return;
 
       html += `
-        <article class="course-card" data-id="${ev.id}">
-          <div>
-            <div class="card-header-row">
-              <span class="day-tag">${ev.day}</span>
-              <span class="program-tag" style="background: ${theme.bg}; color: ${theme.text}; border: 1px solid ${theme.border};">
-                <span class="program-dot" style="background: ${theme.dot};"></span>
-                ${escapeHtml(badgeText)}
-              </span>
-            </div>
-            <h3 class="course-name-h3">${escapeHtml(ev.course_code)}</h3>
-            <p class="course-desc-p">${escapeHtml(ev.course_full)}</p>
-          </div>
+        <section class="day-section">
+          <div class="schedule-grid">
+      `;
 
-          <div class="card-footer-row">
-            <div class="time-slot">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              <span>${escapeHtml(ev.time)}</span>
+      dayEvents.forEach(ev => {
+        const theme = getTheme(ev.department);
+        const isElective = ev.department === 'MS-ELECTIVE';
+        const badgeText = isElective ? 'MS Elective' : ev.department.replace('MS-', 'MS ');
+
+        html += `
+          <article class="course-card" data-id="${ev.id}">
+            <div>
+              <div class="card-header-row">
+                <span class="day-tag">${ev.day}</span>
+                <span class="program-tag" style="background: ${theme.bg}; color: ${theme.text}; border: 1px solid ${theme.border};">
+                  <span class="program-dot" style="background: ${theme.dot};"></span>
+                  ${escapeHtml(badgeText)}
+                </span>
+              </div>
+              <h3 class="course-name-h3">${escapeHtml(ev.course_code)}</h3>
+              <p class="course-desc-p">${escapeHtml(ev.course_full)}</p>
             </div>
-            <div class="room-badge" data-room="${escapeHtml(ev.room)}" title="Click to copy room">
-              <span>📍 Room ${escapeHtml(ev.room)}</span>
+
+            <div class="card-footer-row">
+              <div class="time-slot">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>${escapeHtml(ev.time)}</span>
+              </div>
+              <div class="room-badge" data-room="${escapeHtml(ev.room)}" title="Click to copy room">
+                <span>📍 Room ${escapeHtml(ev.room)}</span>
+              </div>
             </div>
+          </article>
+        `;
+      });
+
+      html += `
           </div>
-        </article>
+        </section>
       `;
     });
 
@@ -363,6 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       dayTabs.querySelectorAll('.tab-item').forEach(btn => btn.classList.remove('active'));
       tabBtn.classList.add('active');
+      tabBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 
       currentDayFilter = tabBtn.getAttribute('data-day');
       renderSchedule();
