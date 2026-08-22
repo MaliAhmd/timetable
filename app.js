@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 3. Search query match
       if (query) {
-        const text = `${ev.course_code} ${ev.course_full} ${ev.room} ${ev.department_name} ${ev.day}`.toLowerCase();
+        const text = `${ev.course_code} ${ev.course_full} ${ev.room} ${ev.department_name} ${ev.day} ${ev.raw || ''} ${ev.section || ''} ${ev.track || ''}`.toLowerCase();
         if (!text.includes(query)) return false;
       }
 
@@ -225,6 +225,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const isElective = ev.department === 'MS-ELECTIVE';
         const badgeText = isElective ? 'MS Elective' : ev.department.replace('MS-', 'MS ');
 
+        // Extract section info (e.g. AI-A, AI-B) if available
+        let displayTitle = ev.course_code;
+        
+        const secMatch = ev.raw ? ev.raw.match(/\(([A-Za-z0-9-]+)\)/) : null;
+        const secTag = secMatch ? secMatch[1] : (ev.section || '');
+
+        if (secTag && (secTag.includes('-') || (ev.track && ev.track !== 'General'))) {
+          if (!displayTitle.includes(secTag)) {
+            displayTitle = `${ev.course_code} (${escapeHtml(secTag)})`;
+          }
+        }
+
         html += `
           <article class="course-card" data-id="${ev.id}">
             <div>
@@ -235,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   ${escapeHtml(badgeText)}
                 </span>
               </div>
-              <h3 class="course-name-h3">${escapeHtml(ev.course_code)}</h3>
+              <h3 class="course-name-h3">${escapeHtml(displayTitle)}</h3>
               <p class="course-desc-p">${escapeHtml(ev.course_full)}</p>
             </div>
 

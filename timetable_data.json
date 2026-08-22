@@ -9,6 +9,8 @@
     "department": "MS-CS",
     "department_name": "MS Computer Science",
     "track": "General",
+    "section": "CS",
+    "section_label": "",
     "raw": "App Prog (CS)"
   },
   {
@@ -21,6 +23,8 @@
     "department": "MS-ELECTIVE",
     "department_name": "MS Electives",
     "track": "General",
+    "section": "",
+    "section_label": "",
     "raw": "Data Visualization"
   },
   {
@@ -33,6 +37,8 @@
     "department": "MS-CS",
     "department_name": "MS Computer Science",
     "track": "General",
+    "section": "CS",
+    "section_label": "",
     "raw": "Adv OS (CS)"
   },
   {
@@ -45,6 +51,8 @@
     "department": "MS-CY",
     "department_name": "MS Cyber Security",
     "track": "General",
+    "section": "CY",
+    "section_label": "",
     "raw": "Secure Sys (CY)"
   },
   {
@@ -57,6 +65,8 @@
     "department": "MS-CY",
     "department_name": "MS Cyber Security",
     "track": "General",
+    "section": "CY",
+    "section_label": "",
     "raw": "Applied Info Sec (CY)"
   },
   {
@@ -69,6 +79,8 @@
     "department": "MS-SE",
     "department_name": "MS Software Engineering",
     "track": "General",
+    "section": "SE",
+    "section_label": "",
     "raw": "App Prog (SE)"
   },
   {
@@ -81,6 +93,8 @@
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
     "track": "General",
+    "section": "AI",
+    "section_label": "",
     "raw": "App Comp Vision (AI)"
   },
   {
@@ -93,6 +107,8 @@
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
     "track": "General",
+    "section": "AI",
+    "section_label": "",
     "raw": "Agentic AI (AI)"
   },
   {
@@ -105,6 +121,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "Agentic AI (DS)"
   },
   {
@@ -117,6 +135,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "Adv Topics in Gen AI (DS)"
   },
   {
@@ -129,6 +149,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "App Prog (DS)"
   },
   {
@@ -141,6 +163,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "DS Tools & Tech (DS)"
   },
   {
@@ -153,6 +177,8 @@
     "department": "MS-CI",
     "department_name": "MS Computational Intelligence",
     "track": "General",
+    "section": "CI",
+    "section_label": "",
     "raw": "Prog for AI (CI)"
   },
   {
@@ -165,6 +191,8 @@
     "department": "MS-CI",
     "department_name": "MS Computational Intelligence",
     "track": "General",
+    "section": "CI",
+    "section_label": "",
     "raw": "Data St & Algo (CI)"
   },
   {
@@ -177,6 +205,8 @@
     "department": "MS-AIHS",
     "department_name": "MS AI in Health Sciences",
     "track": "General",
+    "section": "AIHS",
+    "section_label": "",
     "raw": "Found of Health Info Sys (AIHS)"
   },
   {
@@ -189,6 +219,8 @@
     "department": "MS-SE",
     "department_name": "MS Software Engineering",
     "track": "General",
+    "section": "SE",
+    "section_label": "",
     "raw": "Empirical S/w Engg (SE)"
   },
   {
@@ -201,6 +233,8 @@
     "department": "MS-SE",
     "department_name": "MS Software Engineering",
     "track": "General",
+    "section": "SE",
+    "section_label": "",
     "raw": "Engg AI (SE)"
   },
   {
@@ -212,7 +246,9 @@
     "course_full": "Research Methodology",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track B",
+    "track": "Section B",
+    "section": "AI-B",
+    "section_label": "Section AI-B",
     "raw": "Research Methodology (AI-B)"
   },
   {
@@ -224,7 +260,9 @@
     "course_full": "Mathematical Foundations of AI",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track A",
+    "track": "Section A",
+    "section": "AI-A",
+    "section_label": "Section AI-A",
     "raw": "Math Foundations of AI (AI-A)"
   },
   {
@@ -236,7 +274,9 @@
     "course_full": "Mathematical Foundations of AI",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track B",
+    "track": "Section B",
+    "section": "AI-B",
+    "section_label": "Section AI-B",
     "raw": "Math Foundations of AI (AI-B)"
   },
   {
@@ -249,6 +289,8 @@
     "department": "MS-CY",
     "department_name": "MS Cyber Security",
     "track": "General",
+    "section": "CY",
+    "section_label": "",
     "raw": "App Prog (CY)"
   },
   {
@@ -261,6 +303,8 @@
     "department": "MS-CY",
     "department_name": "MS Cyber Security",
     "track": "General",
+    "section": "CY",
+    "section_label": "",
     "raw": "ML (CY)"
   },
   {
@@ -273,6 +317,8 @@
     "department": "MS-ELECTIVE",
     "department_name": "MS Electives",
     "track": "General",
+    "section": "",
+    "section_label": "",
     "raw": "Securing Cloud"
   },
   {
@@ -284,7 +330,9 @@
     "course_full": "Advanced Artificial Intelligence",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track A",
+    "track": "Section A",
+    "section": "AI-A",
+    "section_label": "Section AI-A",
     "raw": "Adv AI (AI-A)"
   },
   {
@@ -296,7 +344,9 @@
     "course_full": "Applied Programming",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track B",
+    "track": "Section B",
+    "section": "AI-B",
+    "section_label": "Section AI-B",
     "raw": "App Prog (AI-B)"
   },
   {
@@ -308,7 +358,9 @@
     "course_full": "Advanced Artificial Intelligence",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track B",
+    "track": "Section B",
+    "section": "AI-B",
+    "section_label": "Section AI-B",
     "raw": "Adv AI (AI-B)"
   },
   {
@@ -321,6 +373,8 @@
     "department": "MS-CS",
     "department_name": "MS Computer Science",
     "track": "General",
+    "section": "CS",
+    "section_label": "",
     "raw": "Adv Algo (CS)"
   },
   {
@@ -333,6 +387,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "NLP (DS)"
   },
   {
@@ -345,6 +401,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "Stat & Math (DS)"
   },
   {
@@ -357,6 +415,8 @@
     "department": "MS-CI",
     "department_name": "MS Computational Intelligence",
     "track": "General",
+    "section": "CI",
+    "section_label": "",
     "raw": "DB & OS (CI)"
   },
   {
@@ -369,6 +429,8 @@
     "department": "MS-CI",
     "department_name": "MS Computational Intelligence",
     "track": "General",
+    "section": "CI",
+    "section_label": "",
     "raw": "Math for CI (CI) Room D-306"
   },
   {
@@ -381,6 +443,8 @@
     "department": "MS-AIHS",
     "department_name": "MS AI in Health Sciences",
     "track": "General",
+    "section": "AIHS",
+    "section_label": "",
     "raw": "Prog for Digital Health (AIHS)"
   },
   {
@@ -393,6 +457,8 @@
     "department": "MS-AIHS",
     "department_name": "MS AI in Health Sciences",
     "track": "General",
+    "section": "AIHS",
+    "section_label": "",
     "raw": "Found of AI (AIHS)"
   },
   {
@@ -405,6 +471,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "Research Methodology (DS)"
   },
   {
@@ -416,7 +484,9 @@
     "course_full": "Research Methodology",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track A",
+    "track": "Section A",
+    "section": "AI-A",
+    "section_label": "Section AI-A",
     "raw": "Research Methodology (AI-A)"
   },
   {
@@ -429,6 +499,8 @@
     "department": "MS-SE",
     "department_name": "MS Software Engineering",
     "track": "General",
+    "section": "SE",
+    "section_label": "",
     "raw": "Adv Quality Assur (SE)"
   },
   {
@@ -441,6 +513,8 @@
     "department": "MS-SE",
     "department_name": "MS Software Engineering",
     "track": "General",
+    "section": "SE",
+    "section_label": "",
     "raw": "Adv S/w Arch (SE)"
   },
   {
@@ -453,6 +527,8 @@
     "department": "MS-ELECTIVE",
     "department_name": "MS Electives",
     "track": "General",
+    "section": "",
+    "section_label": "",
     "raw": "Adv Topics in Req Engg"
   },
   {
@@ -465,6 +541,8 @@
     "department": "MS-CS",
     "department_name": "MS Computer Science",
     "track": "General",
+    "section": "CS",
+    "section_label": "",
     "raw": "App Prog (CS)"
   },
   {
@@ -477,6 +555,8 @@
     "department": "MS-ELECTIVE",
     "department_name": "MS Electives",
     "track": "General",
+    "section": "",
+    "section_label": "",
     "raw": "Data Visualization"
   },
   {
@@ -489,6 +569,8 @@
     "department": "MS-CS",
     "department_name": "MS Computer Science",
     "track": "General",
+    "section": "CS",
+    "section_label": "",
     "raw": "Adv OS (CS)"
   },
   {
@@ -501,6 +583,8 @@
     "department": "MS-CY",
     "department_name": "MS Cyber Security",
     "track": "General",
+    "section": "CY",
+    "section_label": "",
     "raw": "Secure Sys (CY)"
   },
   {
@@ -513,6 +597,8 @@
     "department": "MS-CY",
     "department_name": "MS Cyber Security",
     "track": "General",
+    "section": "CY",
+    "section_label": "",
     "raw": "Applied Info Sec (CY)"
   },
   {
@@ -525,6 +611,8 @@
     "department": "MS-SE",
     "department_name": "MS Software Engineering",
     "track": "General",
+    "section": "SE",
+    "section_label": "",
     "raw": "App Prog (SE)"
   },
   {
@@ -537,6 +625,8 @@
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
     "track": "General",
+    "section": "AI",
+    "section_label": "",
     "raw": "App Comp Vision (AI)"
   },
   {
@@ -549,6 +639,8 @@
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
     "track": "General",
+    "section": "AI",
+    "section_label": "",
     "raw": "Agentic AI (AI)"
   },
   {
@@ -561,6 +653,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "Agentic AI (DS)"
   },
   {
@@ -573,6 +667,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "Adv Topics in Gen AI (DS)"
   },
   {
@@ -585,6 +681,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "App Prog (DS)"
   },
   {
@@ -597,6 +695,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "DS Tools & Tech (DS)"
   },
   {
@@ -609,6 +709,8 @@
     "department": "MS-CI",
     "department_name": "MS Computational Intelligence",
     "track": "General",
+    "section": "CI",
+    "section_label": "",
     "raw": "Prog for AI (CI)"
   },
   {
@@ -621,6 +723,8 @@
     "department": "MS-CI",
     "department_name": "MS Computational Intelligence",
     "track": "General",
+    "section": "CI",
+    "section_label": "",
     "raw": "Data St & Algo (CI)"
   },
   {
@@ -633,6 +737,8 @@
     "department": "MS-AIHS",
     "department_name": "MS AI in Health Sciences",
     "track": "General",
+    "section": "AIHS",
+    "section_label": "",
     "raw": "Found of Health Info Sys (AIHS)"
   },
   {
@@ -645,6 +751,8 @@
     "department": "MS-ELECTIVE",
     "department_name": "MS Electives",
     "track": "General",
+    "section": "",
+    "section_label": "",
     "raw": "Empirical S/w Engg"
   },
   {
@@ -657,6 +765,8 @@
     "department": "MS-ELECTIVE",
     "department_name": "MS Electives",
     "track": "General",
+    "section": "",
+    "section_label": "",
     "raw": "Engg AI"
   },
   {
@@ -668,7 +778,9 @@
     "course_full": "Research Methodology",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track B",
+    "track": "Section B",
+    "section": "AI-B",
+    "section_label": "Section AI-B",
     "raw": "Research Methodology (AI-B)"
   },
   {
@@ -680,7 +792,9 @@
     "course_full": "Mathematical Foundations of AI",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track A",
+    "track": "Section A",
+    "section": "AI-A",
+    "section_label": "Section AI-A",
     "raw": "Math Foundations of AI (AI-A)"
   },
   {
@@ -692,7 +806,9 @@
     "course_full": "Mathematical Foundations of AI",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track B",
+    "track": "Section B",
+    "section": "AI-B",
+    "section_label": "Section AI-B",
     "raw": "Math Foundations of AI (AI-B)"
   },
   {
@@ -705,6 +821,8 @@
     "department": "MS-SE",
     "department_name": "MS Software Engineering",
     "track": "General",
+    "section": "MS-SE",
+    "section_label": "",
     "raw": "UHQ-I & II (MS-SE) 05:20-07:10"
   },
   {
@@ -717,6 +835,8 @@
     "department": "MS-CY",
     "department_name": "MS Cyber Security",
     "track": "General",
+    "section": "CY",
+    "section_label": "",
     "raw": "App Prog (CY)"
   },
   {
@@ -729,6 +849,8 @@
     "department": "MS-CY",
     "department_name": "MS Cyber Security",
     "track": "General",
+    "section": "CY",
+    "section_label": "",
     "raw": "ML (CY)"
   },
   {
@@ -741,6 +863,8 @@
     "department": "MS-ELECTIVE",
     "department_name": "MS Electives",
     "track": "General",
+    "section": "",
+    "section_label": "",
     "raw": "Securing Cloud"
   },
   {
@@ -752,7 +876,9 @@
     "course_full": "Applied Programming",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track B",
+    "track": "Section B",
+    "section": "AI-B",
+    "section_label": "Section AI-B",
     "raw": "App Prog (AI-B)"
   },
   {
@@ -764,7 +890,9 @@
     "course_full": "Advanced Artificial Intelligence",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track A",
+    "track": "Section A",
+    "section": "AI-A",
+    "section_label": "Section AI-A",
     "raw": "Adv AI (AI-A)"
   },
   {
@@ -776,7 +904,9 @@
     "course_full": "Advanced Artificial Intelligence",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track B",
+    "track": "Section B",
+    "section": "AI-B",
+    "section_label": "Section AI-B",
     "raw": "Adv AI (AI-B)"
   },
   {
@@ -789,6 +919,8 @@
     "department": "MS-CS",
     "department_name": "MS Computer Science",
     "track": "General",
+    "section": "CS",
+    "section_label": "",
     "raw": "Adv Algo (CS)"
   },
   {
@@ -801,6 +933,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "NLP (DS)"
   },
   {
@@ -813,6 +947,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "Stat & Math (DS)"
   },
   {
@@ -825,6 +961,8 @@
     "department": "MS-CI",
     "department_name": "MS Computational Intelligence",
     "track": "General",
+    "section": "CI",
+    "section_label": "",
     "raw": "DB & OS (CI)"
   },
   {
@@ -837,6 +975,8 @@
     "department": "MS-CI",
     "department_name": "MS Computational Intelligence",
     "track": "General",
+    "section": "CI",
+    "section_label": "",
     "raw": "Math for CI (CI) Room D-306"
   },
   {
@@ -849,6 +989,8 @@
     "department": "MS-AIHS",
     "department_name": "MS AI in Health Sciences",
     "track": "General",
+    "section": "AIHS",
+    "section_label": "",
     "raw": "Prog for Digital Health (AIHS)"
   },
   {
@@ -861,6 +1003,8 @@
     "department": "MS-AIHS",
     "department_name": "MS AI in Health Sciences",
     "track": "General",
+    "section": "AIHS",
+    "section_label": "",
     "raw": "Found of AI (AIHS)"
   },
   {
@@ -873,6 +1017,8 @@
     "department": "MS-DS",
     "department_name": "MS Data Science",
     "track": "General",
+    "section": "DS",
+    "section_label": "",
     "raw": "Research Methodology (DS)"
   },
   {
@@ -884,7 +1030,9 @@
     "course_full": "Research Methodology",
     "department": "MS-AI",
     "department_name": "MS Artificial Intelligence",
-    "track": "Track A",
+    "track": "Section A",
+    "section": "AI-A",
+    "section_label": "Section AI-A",
     "raw": "Research Methodology (AI-A)"
   },
   {
@@ -897,6 +1045,8 @@
     "department": "MS-SE",
     "department_name": "MS Software Engineering",
     "track": "General",
+    "section": "SE",
+    "section_label": "",
     "raw": "Adv Quality Assur (SE)"
   },
   {
@@ -909,6 +1059,8 @@
     "department": "MS-SE",
     "department_name": "MS Software Engineering",
     "track": "General",
+    "section": "SE",
+    "section_label": "",
     "raw": "Adv S/w Arch (SE)"
   },
   {
@@ -921,6 +1073,8 @@
     "department": "MS-CS",
     "department_name": "MS Computer Science",
     "track": "General",
+    "section": "MS-CS",
+    "section_label": "",
     "raw": "UHQ-I & II (MS-CS) 05:20-07:10"
   },
   {
@@ -933,6 +1087,64 @@
     "department": "MS-ELECTIVE",
     "department_name": "MS Electives",
     "track": "General",
+    "section": "",
+    "section_label": "",
     "raw": "Adv Topics in Req Engg"
+  },
+  {
+    "id": "Fri_5_29",
+    "day": "Friday",
+    "room": "D-301",
+    "time": "05:20 - 06:40",
+    "course_code": "Research Methodology",
+    "course_full": "Research Methodology",
+    "department": "MS-CS",
+    "department_name": "MS Computer Science",
+    "track": "General",
+    "section": "CS",
+    "section_label": "",
+    "raw": "Research Methodology (CS)"
+  },
+  {
+    "id": "Fri_7_29",
+    "day": "Friday",
+    "room": "D-303",
+    "time": "05:20 - 06:40",
+    "course_code": "Research Methodology",
+    "course_full": "Research Methodology",
+    "department": "MS-SE",
+    "department_name": "MS Software Engineering",
+    "track": "General",
+    "section": "CYBER &SE",
+    "section_label": "",
+    "raw": "Research Methodology (Cyber &SE)"
+  },
+  {
+    "id": "Fri_8_29",
+    "day": "Friday",
+    "room": "D-304",
+    "time": "05:20 - 07:10",
+    "course_code": "UHQ-I & II",
+    "course_full": "Understanding Quran I & II",
+    "department": "MS-CY",
+    "department_name": "MS Cyber Security",
+    "track": "General",
+    "section": "MS-CY",
+    "section_label": "",
+    "raw": "UHQ-I & II (MS-CY) 05:20-07:10 Spring-2026 & fall-2025"
+  },
+  {
+    "id": "Fri_9_29",
+    "day": "Friday",
+    "room": "D-305",
+    "time": "05:20 - 06:40",
+    "course_code": "App Prog",
+    "course_full": "Applied Programming",
+    "department": "MS-AI",
+    "department_name": "MS Artificial Intelligence",
+    "track": "Section A",
+    "section": "AI-A",
+    "section_label": "Section AI-A",
+    "raw": "App Prog (AI-A)"
   }
 ]

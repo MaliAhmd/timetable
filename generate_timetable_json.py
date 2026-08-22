@@ -71,25 +71,30 @@ def extract_ms_timetable():
                 res.append(last)
             return res
 
-        default_time_row = fill_row(rows[4])
+        header_row = rows[4]
+        default_time_row = fill_row(header_row)
         
-        # Scan evening slots (columns 30+)
+        # Dynamically locate evening room column (last column with 'Room'/'Lab'/'Room/ Time')
+        room_col_indices = [i for i, val in enumerate(header_row) if val.strip().lower() in ["room", "lab", "room/ time"]]
+        evening_room_col = room_col_indices[-1] if room_col_indices else 30
+        
+        # Scan evening slots
         for r_i in range(5, len(rows)):
             row = rows[r_i]
-            if not row or len(row) <= 30:
+            if not row or len(row) <= evening_room_col:
                 continue
                 
-            room_evening = row[30].strip() if len(row) > 30 else row[0].strip()
+            room_evening = row[evening_room_col].strip()
             if not room_evening or room_evening.lower() in ["room", "lab", "room/ time"]:
                 continue
                 
-            for c_i in range(31, len(row)):
+            for c_i in range(evening_room_col + 1, len(row)):
                 cell_text = row[c_i].strip()
                 if not cell_text or cell_text in ["Room", "Lab", "P R A Y E R", "B R E A K"] or "inc. 10 min. break" in cell_text:
                     continue
                 
                 # Exclude all PhD courses
-                if any(phd_kw in cell_text for phd_kw in ["PCS", "PhD", "PHD", "Parallel Dist Sys", "Software Process Mining", "Adv Computer Vision", "Advanced Topics in NLP"]):
+                if any(phd_kw in cell_text for phd_kw in ["PHD-C", "PHD-A", "PHD-B", "PCS", "PhD", "PHD", "Parallel Dist Sys", "Software Process Mining", "Adv Computer Vision", "Advanced Topics in NLP"]):
                     continue
 
                 default_time = default_time_row[c_i] if c_i < len(default_time_row) else "05:20 - 06:40"
@@ -98,7 +103,7 @@ def extract_ms_timetable():
                 override = TIME_RE.search(cell_text)
                 if override:
                     time_slot = override.group(1).strip()
-                    clean_cell = cell_text.replace(time_slot, "").strip()
+                    clean_cell = cell_text.replace(override.group(0), "").strip()
                 else:
                     time_slot = default_time
                     clean_cell = cell_text
@@ -107,6 +112,9 @@ def extract_ms_timetable():
                     parts = time_slot.split("-")
                     time_slot = f"{parts[0].strip()} - {parts[1].strip()}"
                 
+                # Clean extra term suffixes e.g. "Spring-2026 & fall-2025"
+                clean_cell = re.sub(r'Spring[-\s]*\d+.*$', '', clean_cell, flags=re.IGNORECASE).strip()
+
                 # Department & Program classification for MS students
                 sec_m = re.findall(r'\(([^)]+)\)', clean_cell)
                 tag = sec_m[-1].upper().strip() if sec_m else ""
@@ -129,18 +137,25 @@ def extract_ms_timetable():
                 elif re.search(r'\bAI\b', tag) or "(AI)" in clean_cell or "(AI-A)" in clean_cell or "(AI-B)" in clean_cell:
                     dept = "MS-AI"
                     dept_name = "MS Artificial Intelligence"
-                elif re.search(r'\bCY\b', tag) or "(CY)" in clean_cell or "(MS-CY)" in clean_cell:
+                elif re.search(r'\bCY\b', tag) or "(CY)" in clean_cell or "(MS-CY)" in clean_cell or "Cyber" in clean_cell:
                     dept = "MS-CY"
                     dept_name = "MS Cyber Security"
                 else:
                     dept = "MS-ELECTIVE"
                     dept_name = "MS Electives"
 
-                # Track / Section (e.g. AI-A -> Track A, AI-B -> Track B)
+                # Track / Section (e.g. AI-A -> Section AI-A, AI-B -> Section AI-B)
                 track = "General"
+                section = ""
+                section_label = ""
                 m_trk = re.search(r'[- ]([A-Z])\b', tag)
                 if m_trk:
-                    track = f"Track {m_trk.group(1).upper()}"
+                    sec_letter = m_trk.group(1).upper()
+                    track = f"Section {sec_letter}"
+                    section = tag
+                    section_label = f"Section {tag}"
+                elif tag:
+                    section = tag
 
                 course_name = re.sub(r'\(.*?\)', '', clean_cell).strip()
                 course_full = COURSE_NAMES.get(course_name, course_name)
@@ -155,6 +170,8 @@ def extract_ms_timetable():
                     "department": dept,
                     "department_name": dept_name,
                     "track": track,
+                    "section": section,
+                    "section_label": section_label,
                     "raw": cell_text
                 })
 

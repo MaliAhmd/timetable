@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -10,15 +11,17 @@
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="dark">
   <div class="layout-wrapper">
-    
-    <!-- Sticky Top Controls (Header, Filters, Day Tabs) -->
-    <div class="sticky-controls-wrapper">
-      <!-- Top Navigation Bar -->
+
+    <!-- Sticky Top Navigation Bar (Header pinned at top) -->
+    <div class="sticky-navbar-wrapper">
       <header class="navbar">
         <div class="navbar-left">
           <div class="university-logo-container">
@@ -38,17 +41,33 @@
           </div>
 
           <button class="btn btn-icon" id="themeToggle" title="Toggle Theme (Dark / Light)" aria-label="Toggle Theme">
-            <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
           </button>
         </div>
       </header>
+    </div>
 
-
+    <!-- Scrollable Controls & Filters Section -->
+    <div class="controls-container">
       <!-- Filter Toolbar -->
       <section class="toolbar-section">
         <div class="toolbar-grid">
-          
+
           <!-- Degree Program Selector -->
           <div class="control-box">
             <label class="control-label" for="deptSelect">Master's Program</label>
@@ -81,10 +100,16 @@
           <div class="control-box search-box">
             <label class="control-label" for="courseSearch">Search Course or Room</label>
             <div class="search-input-container">
-              <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <input type="text" id="courseSearch" class="form-input" placeholder="Type course or room (e.g. Agentic AI, D-306, NLP)..." autocomplete="off">
+              <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="courseSearch" class="form-input"
+                placeholder="Type course or room (e.g. Agentic AI, D-306, NLP)..." autocomplete="off">
               <kbd class="search-kbd" id="searchKbd" title="Press '/' to search">/</kbd>
-              <button id="clearSearchBtn" class="btn-clear" style="display:none;" aria-label="Clear Search">&times;</button>
+              <button id="clearSearchBtn" class="btn-clear" style="display:none;"
+                aria-label="Clear Search">&times;</button>
             </div>
           </div>
 
@@ -121,7 +146,12 @@
     <!-- Empty State -->
     <div id="emptyState" class="empty-placeholder" style="display:none;">
       <div class="empty-icon-wrap">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
       </div>
       <h3 class="empty-title">No Classes Scheduled</h3>
       <p id="emptyStateMessage" class="empty-desc">There are no classes matching your current filter.</p>
@@ -129,8 +159,44 @@
 
     <!-- Footer -->
     <footer class="app-footer">
-      <div>FAST National University of Computer and Emerging Sciences — Islamabad Campus</div>
-      <div class="footer-sub">Dedicated Master's (MS) Program Schedule • Evening Sessions (05:20 PM – 08:05 PM)</div>
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="footer-brand-title">FAST National University of Computer and Emerging Sciences</span>
+            <span class="footer-brand-sub">Islamabad Campus — Master's Program Evening Schedule (Fall 2026)</span>
+          </div>
+          <div class="footer-session">
+            <span class="session-badge">Evening Sessions</span>
+            <span>05:20 PM – 08:05 PM</span>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+          <div class="footer-copy">
+            © 2026 FAST NUCES MS Portal. All Rights Reserved.
+          </div>
+          <div class="footer-actions">
+            <a href="https://devaalley.me" target="_blank" rel="noopener noreferrer" class="footer-btn">
+              <span>Developed by <strong>Muhammad Ali Ahmad</strong></span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=i258003@isb.nu.edu.pk&su=FAST%20MS%20Timetable%20Portal%20Feedback"
+              target="_blank" rel="noopener noreferrer" class="footer-btn footer-btn-email"
+              title="Click to compose email via Gmail to i258003@isb.nu.edu.pk">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Error Report / Suggestion: <code class="email-pill">i258003@isb.nu.edu.pk</code></span>
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
 
   </div>
@@ -138,4 +204,5 @@
   <script src="timetable_data.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>

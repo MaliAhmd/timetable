@@ -118,23 +118,28 @@ body {
 }
 
 /* ==========================================================================
-   Sticky Top Controls Wrapper (Pins Header, Filters & Day Tabs on Scroll)
+   Sticky Top Header Navigation Wrapper (Fixed at top)
    ========================================================================== */
-.sticky-controls-wrapper {
+.sticky-navbar-wrapper {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1000;
   background-color: var(--bg-app);
   padding-top: 12px;
-  padding-bottom: 6px;
+  padding-bottom: 4px;
   margin-top: -12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   transition: background-color 0.2s ease;
 }
 
+.controls-container {
+  position: relative;
+  width: 100%;
+}
+
 /* ==========================================================================
-   Header & Brand Navigation (Compact)
+   Header & Brand Navigation (Compact Header)
    ========================================================================== */
 .navbar {
   display: flex;
@@ -144,7 +149,6 @@ body {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  margin-bottom: 10px;
   box-shadow: var(--shadow-sm);
   transition: border-color 0.2s ease, background-color 0.2s ease;
   width: 100%;
@@ -754,6 +758,25 @@ body.light .moon-icon { display: block; }
   flex-shrink: 0;
 }
 
+.section-tag-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #60a5fa;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+body.light .section-tag-badge {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+}
+
 .program-tag {
   font-size: 0.68rem;
   font-weight: 600;
@@ -925,21 +948,160 @@ body.light .moon-icon { display: block; }
 }
 
 /* ==========================================================================
-   Footer (Compact)
+   Footer (Modern Card Architecture)
    ========================================================================== */
 .app-footer {
-  margin-top: 24px;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 14px;
-  text-align: center;
-  font-size: 0.76rem;
-  color: var(--text-dim);
+  margin-top: 28px;
+  width: 100%;
 }
 
-.footer-sub {
-  font-size: 0.7rem;
-  margin-top: 2px;
-  color: var(--text-dim);
+.footer-container {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer-brand-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.footer-brand-sub {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.footer-session {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+}
+
+.session-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--status-upcoming-bg);
+  color: var(--status-upcoming);
+  border: 1px solid var(--status-upcoming-border);
+  padding: 1px 5px;
+  border-radius: var(--radius-xs);
+}
+
+.footer-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  width: 100%;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-main);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 12px;
+  border-radius: var(--radius-xs);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.footer-btn strong {
+  font-weight: 700;
+  color: var(--status-upcoming);
+}
+
+.footer-btn:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+}
+
+.footer-btn:active {
+  transform: translateY(0);
+}
+
+.footer-btn-subtle {
+  color: var(--text-muted);
+}
+
+.footer-btn-subtle:hover {
+  color: var(--text-main);
+}
+
+.email-pill {
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  font-weight: 600;
+  color: var(--status-active);
+  background: var(--status-active-bg);
+  border: 1px solid var(--status-active-border);
+  padding: 1px 6px;
+  border-radius: var(--radius-xs);
+  margin-left: 3px;
+  transition: all 0.15s ease;
+}
+
+.footer-btn-email:hover .email-pill {
+  border-color: var(--status-active);
+  background: rgba(16, 185, 129, 0.22);
 }
 
 /* ==========================================================================
@@ -957,7 +1119,7 @@ body.light .moon-icon { display: block; }
     padding: 10px 8px 30px;
   }
 
-  .sticky-controls-wrapper {
+  .sticky-navbar-wrapper {
     padding-top: 10px;
     padding-bottom: 4px;
     margin-top: -10px;
