@@ -2,12 +2,97 @@
 <html lang="en">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7CZQL1MRN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-7CZQL1MRN4');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="theme-color" content="#0a0d14">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>FAST NUCES — MS Master's Timetable Portal</title>
+
+  <!-- Primary SEO Meta Tags -->
+  <title>FAST NUCES Islamabad — Official MS Master's Timetable Portal | FAST University (NUCES)</title>
+  <meta name="title" content="FAST NUCES Islamabad — Official MS Master's Timetable Portal | FAST University (NUCES)">
+  <meta name="description" content="Official MS Master's Program Timetable & Schedule Portal for FAST University Islamabad (FAST-NUCES). Search evening class timings, room locations, and schedules for MS DS, MS CS, MS AI, MS CY, MS SE, MS CI.">
+  <meta name="keywords" content="FAST, Fast University, NUCES, FAST NUCES, FAST Islamabad, FAST NUCES Islamabad, FAST University Islamabad Timetable, NUCES Islamabad Schedule, FAST MS Portal, FAST Master's Timetable, FAST MS Data Science, FAST MS CS, FAST MS AI, FAST MS Cyber Security, FAST MS Software Engineering, FAST MS Computational Intelligence, FAST Islamabad Evening Schedule, National University of Computer and Emerging Sciences">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="FAST NUCES Islamabad">
+  <meta name="publisher" content="FAST National University of Computer and Emerging Sciences">
+  <link rel="canonical" href="https://fast-timetable.vercel.app/">
+
+  <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fast-timetable.vercel.app/">
+  <meta property="og:title" content="FAST NUCES Islamabad — MS Timetable Portal | FAST University (NUCES)">
+  <meta property="og:description" content="Official Evening Class Timetable & Schedule Search Portal for FAST University Islamabad (FAST-NUCES) MS Master's programs.">
+  <meta property="og:image" content="https://fast-timetable.vercel.app/logo.png">
+  <meta property="og:image:alt" content="FAST NUCES Islamabad Logo">
+  <meta property="og:site_name" content="FAST NUCES Islamabad">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://fast-timetable.vercel.app/">
+  <meta name="twitter:title" content="FAST NUCES Islamabad — MS Timetable Portal | FAST University">
+  <meta name="twitter:description" content="Official Evening Class Timetable Portal for FAST University Islamabad (FAST-NUCES) MS programs.">
+  <meta name="twitter:image" content="https://fast-timetable.vercel.app/logo.png">
+
+  <!-- Structured Data / JSON-LD (Schema.org) for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollegeOrUniversity",
+        "@id": "https://isb.nu.edu.pk/#university",
+        "name": "FAST National University of Computer and Emerging Sciences",
+        "alternateName": [
+          "FAST",
+          "Fast University",
+          "NUCES",
+          "FAST-NUCES",
+          "FAST Islamabad",
+          "FAST NUCES Islamabad",
+          "FAST University Islamabad"
+        ],
+        "url": "https://isb.nu.edu.pk/",
+        "logo": "https://fast-timetable.vercel.app/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Islamabad",
+          "addressRegion": "ICT",
+          "addressCountry": "PK"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "name": "FAST NUCES MS Master's Timetable Portal",
+        "alternateName": [
+          "FAST Timetable",
+          "FAST University Timetable",
+          "NUCES Timetable",
+          "FAST Islamabad MS Schedule"
+        ],
+        "url": "https://fast-timetable.vercel.app/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "provider": {
+          "@type": "CollegeOrUniversity",
+          "name": "FAST National University of Computer and Emerging Sciences"
+        },
+        "description": "Official Master's Program Evening Timetable Portal for FAST NUCES Islamabad. View and search evening schedules for MS Data Science, MS Computer Science, MS Artificial Intelligence, MS Cyber Security, MS Software Engineering, and MS Computational Intelligence."
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,10 +110,10 @@
       <header class="navbar">
         <div class="navbar-left">
           <div class="university-logo-container">
-            <img src="logo.png" alt="FAST NUCES Logo" class="university-logo-img">
+            <img src="logo.png" alt="FAST National University of Computer and Emerging Sciences (FAST-NUCES) Islamabad Logo" class="university-logo-img">
           </div>
           <div class="navbar-title">
-            <div class="title-main">FAST NUCES <span class="tag-academic">MS Portal</span></div>
+            <h1 class="title-main">FAST NUCES <span class="tag-academic">MS Portal</span></h1>
             <div class="title-sub">Master's Program Evening Schedule (Fall 2026)</div>
           </div>
         </div>
@@ -155,7 +240,37 @@
       </div>
       <h3 class="empty-title">No Classes Scheduled</h3>
       <p id="emptyStateMessage" class="empty-desc">There are no classes matching your current filter.</p>
-    </div>
+    <!-- SEO & University Program Overview -->
+    <section class="seo-info-section" aria-label="About FAST NUCES Islamabad MS Portal">
+      <h2>FAST University Islamabad (FAST-NUCES) — MS Evening Timetable Portal</h2>
+      <p>
+        Welcome to the official Master's Evening Timetable & Schedule Search Portal for <strong>FAST National University of Computer and Emerging Sciences (FAST-NUCES)</strong>, Islamabad Campus. Designed specifically for graduate students enrolled in Master's degree programs, this portal provides real-time access to class schedules, lecture timings, assigned room numbers, and faculty details.
+      </p>
+      <p>
+        Easily filter schedules across all graduate programs offered at <strong>FAST University Islamabad</strong> including 
+        <strong>MS Data Science (MS DS)</strong>, 
+        <strong>MS Computer Science (MS CS)</strong>, 
+        <strong>MS Artificial Intelligence (MS AI)</strong>, 
+        <strong>MS Cyber Security (MS CY)</strong>, 
+        <strong>MS Software Engineering (MS SE)</strong>, 
+        <strong>MS Computational Intelligence (MS CI)</strong>, and 
+        <strong>MS AI in Health Sciences (MS AIHS)</strong>.
+      </p>
+      <div class="seo-tag-cloud">
+        <span class="seo-tag">FAST</span>
+        <span class="seo-tag">FAST University</span>
+        <span class="seo-tag">NUCES</span>
+        <span class="seo-tag">FAST Islamabad</span>
+        <span class="seo-tag">FAST NUCES Islamabad</span>
+        <span class="seo-tag">FAST Master's Timetable</span>
+        <span class="seo-tag">NUCES Evening Schedule</span>
+        <span class="seo-tag">MS Data Science</span>
+        <span class="seo-tag">MS Computer Science</span>
+        <span class="seo-tag">MS Artificial Intelligence</span>
+        <span class="seo-tag">MS Cyber Security</span>
+        <span class="seo-tag">MS Software Engineering</span>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="app-footer">
