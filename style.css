@@ -456,6 +456,9 @@ body.light .moon-icon { display: block; }
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 @keyframes slideDown {
@@ -847,7 +850,7 @@ body.light .section-tag-badge {
 .room-badge {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
   font-size: 0.76rem;
   font-weight: 600;
   background: var(--bg-surface-subtle);
@@ -859,6 +862,11 @@ body.light .section-tag-badge {
   user-select: none;
   transition: all 0.15s ease;
   white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.room-badge .room-icon {
+  color: var(--accent-blue);
   flex-shrink: 0;
 }
 

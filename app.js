@@ -257,7 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span>${escapeHtml(ev.time)}</span>
               </div>
               <div class="room-badge" data-room="${escapeHtml(ev.room)}" title="Click to copy room">
-                <span>📍 Room ${escapeHtml(ev.room)}</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="room-icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Room ${escapeHtml(ev.room)}</span>
               </div>
             </div>
           </article>
@@ -299,9 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
     const currentMins = now.getHours() * 60 + now.getMinutes();
 
-    let ongoing = null;
-    let upcoming = null;
-    let minDiff = Infinity;
+    const parsedEvents = [];
 
     todayEvents.forEach(ev => {
       const times = parseTimeSlot(ev.time);
@@ -310,63 +309,93 @@ document.addEventListener('DOMContentLoaded', () => {
       const [sh, sm] = times.startStr.split(':').map(Number);
       const [eh, em] = times.endStr.split(':').map(Number);
 
-      const startH24 = (sh < 8) ? sh + 12 : sh;
-      const endH24 = (eh < 8) ? eh + 12 : eh;
+      const startH24 = (sh < 12) ? sh + 12 : sh;
+      const endH24 = (eh < 12) ? eh + 12 : eh;
 
       const startMins = startH24 * 60 + sm;
       const endMins = endH24 * 60 + em;
 
-      if (currentMins >= startMins && currentMins < endMins) {
-        ongoing = { ev, endMins };
-      } else if (startMins > currentMins) {
-        const diff = startMins - currentMins;
-        if (diff < minDiff) {
-          minDiff = diff;
-          upcoming = { ev, startMins, diff };
-        }
-      }
+      parsedEvents.push({ ev, startMins, endMins });
     });
 
-    if (ongoing) {
-      liveStatusContainer.style.display = 'block';
-      const minsLeft = ongoing.endMins - currentMins;
-      liveStatusContainer.innerHTML = `
-        <div class="alert-card">
-          <div class="alert-left">
-            <span class="alert-badge">In Progress</span>
-            <div class="alert-info">
-              <h4>${escapeHtml(ongoing.ev.course_full)} (${escapeHtml(ongoing.ev.course_code)})</h4>
-              <div class="alert-details">Room: <strong>${escapeHtml(ongoing.ev.room)}</strong> • ${escapeHtml(ongoing.ev.time)}</div>
-            </div>
-          </div>
-          <div class="alert-right">
-            <span>${minsLeft}m remaining</span>
-          </div>
-        </div>
-      `;
-    } else if (upcoming) {
-      liveStatusContainer.style.display = 'block';
-      const hours = Math.floor(upcoming.diff / 60);
-      const mins = upcoming.diff % 60;
-      const startsInText = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
-
-      liveStatusContainer.innerHTML = `
-        <div class="alert-card upcoming-alert">
-          <div class="alert-left">
-            <span class="alert-badge" style="background: var(--status-upcoming-bg); color: var(--status-upcoming); border-color: var(--status-upcoming-border);">Upcoming</span>
-            <div class="alert-info">
-              <h4>${escapeHtml(upcoming.ev.course_full)} (${escapeHtml(upcoming.ev.course_code)})</h4>
-              <div class="alert-details">Room: <strong>${escapeHtml(upcoming.ev.room)}</strong> • ${escapeHtml(upcoming.ev.time)}</div>
-            </div>
-          </div>
-          <div class="alert-right">
-            <span>Starts in ${startsInText}</span>
-          </div>
-        </div>
-      `;
-    } else {
+    if (parsedEvents.length === 0) {
       liveStatusContainer.style.display = 'none';
+      return;
     }
+
+    // 1. Check for ongoing events (classes currently in progress)
+    const ongoingList = parsedEvents.filter(item => currentMins >= item.startMins && currentMins < item.endMins);
+
+    if (ongoingList.length > 0) {
+      liveStatusContainer.style.display = 'flex';
+      
+      let html = '';
+      ongoingList.forEach(item => {
+        const minsLeft = item.endMins - currentMins;
+        const titleText = (item.ev.course_code && item.ev.course_full && item.ev.course_code !== item.ev.course_full)
+          ? `${escapeHtml(item.ev.course_full)} (${escapeHtml(item.ev.course_code)})`
+          : escapeHtml(item.ev.course_full || item.ev.course_code);
+
+        html += `
+          <div class="alert-card">
+            <div class="alert-left">
+              <span class="alert-badge">In Progress</span>
+              <div class="alert-info">
+                <h4>${titleText}</h4>
+                <div class="alert-details"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Room: <strong>${escapeHtml(item.ev.room)}</strong> • ${escapeHtml(item.ev.time)}</div>
+              </div>
+            </div>
+            <div class="alert-right">
+              <span>${minsLeft}m remaining</span>
+            </div>
+          </div>
+        `;
+      });
+      liveStatusContainer.innerHTML = html;
+      return;
+    }
+
+    // 2. Check for upcoming events (all classes starting in the next immediate time slot)
+    const futureEvents = parsedEvents.filter(item => item.startMins > currentMins);
+
+    if (futureEvents.length > 0) {
+      const minStartMins = Math.min(...futureEvents.map(item => item.startMins));
+      const upcomingList = futureEvents.filter(item => item.startMins === minStartMins);
+
+      liveStatusContainer.style.display = 'flex';
+
+      let html = '';
+      upcomingList.forEach(item => {
+        const diff = item.startMins - currentMins;
+        const hours = Math.floor(diff / 60);
+        const mins = diff % 60;
+        const startsInText = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
+
+        const titleText = (item.ev.course_code && item.ev.course_full && item.ev.course_code !== item.ev.course_full)
+          ? `${escapeHtml(item.ev.course_full)} (${escapeHtml(item.ev.course_code)})`
+          : escapeHtml(item.ev.course_full || item.ev.course_code);
+
+        html += `
+          <div class="alert-card upcoming-alert">
+            <div class="alert-left">
+              <span class="alert-badge" style="background: var(--status-upcoming-bg); color: var(--status-upcoming); border-color: var(--status-upcoming-border);">Upcoming</span>
+              <div class="alert-info">
+                <h4>${titleText}</h4>
+                <div class="alert-details"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Room: <strong>${escapeHtml(item.ev.room)}</strong> • ${escapeHtml(item.ev.time)}</div>
+              </div>
+            </div>
+            <div class="alert-right">
+              <span>Starts in ${startsInText}</span>
+            </div>
+          </div>
+        `;
+      });
+      liveStatusContainer.innerHTML = html;
+      return;
+    }
+
+    // 3. No ongoing or upcoming events remaining today
+    liveStatusContainer.style.display = 'none';
   }
 
   // Event Listeners Setup
